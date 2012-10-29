@@ -39,7 +39,7 @@ else
 fi
 
 if [ ! -d $KEYDIR/$DOMAIN ]; then
-  mkdir $KEYDIR/$DOMAIN
+  mkdir -p $KEYDIR/$DOMAIN
 else
   if [ $(ls -la $KEYDIR/$DOMAIN/ | head -n1 | awk '{print $2}') -ne 0 ]; then
     echo "[WARN] found previously generated key, please remove by hand if you still want to proceed!"
