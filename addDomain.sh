@@ -56,7 +56,7 @@ fi
 chown $OPENDKIM_USER.$OPENDKIM_GROUP $KEYDIR/$DOMAIN/$SELECTOR.private
 chmod 600 $KEYDIR/$DOMAIN/$SELECTOR.private
 echo "now please put the following string into your DNS config:"
-MXIP=$(dig +short `dig +short eans.ch mx | awk '{print $2}'`)
+MXIP=$(dig +short `dig +short $DOMAIN mx | awk '{print $2}'`)
 printf "\n=================\n$DOMAIN IN TXT v=spf1 iv4:$MXIP ~all\n"
 cat $KEYDIR/$DOMAIN/$SELECTOR.txt
 printf '=================\n'
